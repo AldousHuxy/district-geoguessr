@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+@theme {
+    --color-dark-blue: #06242d;
+    --color-dark-blue-100: #0a2b3c;
+    --color-sky-blue: #66d4ff;
+    --color-bright-yellow: #ffdd00;
+    --color-deep-purple: #251863;
+    --color-soft-green: #29c499;
+    --color-light-purple: #87a4d6;
+    --color-medium-blue: #63b4cc;
+    --default-font-family: Ubuntu, sans-serif;
+}

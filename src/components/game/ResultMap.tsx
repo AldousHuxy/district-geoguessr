@@ -75,7 +75,8 @@ const ResultMap = ({ guess, actual }: ResultMapProps) => {
           }),
         );
 
-        view.goTo([guessPoint, actualPoint], { padding: { top: 24, right: 24, bottom: 24, left: 24 } }).catch(() => {});
+        view.padding = { top: 24, right: 24, bottom: 24, left: 24 };
+        view.goTo([guessPoint, actualPoint]).catch(() => {});
       } else {
         view.goTo({ target: actualPoint, zoom: 12 }).catch(() => {});
       }

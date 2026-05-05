@@ -65,7 +65,7 @@ const MainMenu = () => {
           className="h-14 object-contain drop-shadow-lg"
         />
 
-        <div className="flex flex-col items-center gap-3 text-center">
+        <div className="flex flex-col items-start gap-3">
           <h1 className="text-5xl font-bold text-bright-yellow leading-tight tracking-tight drop-shadow-lg">
             District<br />Geoguessr
           </h1>

@@ -14,5 +14,5 @@ export const router = createBrowserRouter(
             <Route path={routes.unknown} element={<Navigate to={routes.menu} />} />
         </Route>
     ),
-    { basename: '/district-geoguesser' }
+    { basename: '/district-geoguessr' }
 );

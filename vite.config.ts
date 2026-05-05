@@ -6,7 +6,7 @@ import path from 'path'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/district-geoguesser/',
+  base: '/district-geoguessr/',
   plugins: [
     react(),
     babel({ presets: [reactCompilerPreset()] }),

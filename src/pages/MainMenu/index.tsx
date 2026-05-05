@@ -37,7 +37,7 @@ const carouselImages = [
   'Van Bibber Drop 2.jpg',
   'West Fork of Kenneys Run.jpg',
   'Wonderland Creek.jpg',
-].map(name => `/${encodeURIComponent(name)}`);
+].map(name => `${import.meta.env.BASE_URL}${encodeURIComponent(name)}`);
 
 const MainMenu = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -60,7 +60,7 @@ const MainMenu = () => {
 
       <div className="relative z-10 flex flex-col items-center justify-between h-full px-6 pt-12 pb-16 safe-area-inset">
         <img
-          src="/MHFD Logo.png"
+          src={`${import.meta.env.BASE_URL}MHFD%20Logo.png`}
           alt="MHFD Logo"
           className="h-14 object-contain drop-shadow-lg"
         />

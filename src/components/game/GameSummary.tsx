@@ -26,7 +26,7 @@ const GameSummary = () => {
     >
       <div className="max-w-lg mx-auto px-4 pt-10 pb-16">
         <img
-          src="/MHFD Logo.png"
+          src={`${import.meta.env.BASE_URL}MHFD%20Logo.png`}
           alt="MHFD Logo"
           className="h-10 object-contain mx-auto mb-6 opacity-70"
         />

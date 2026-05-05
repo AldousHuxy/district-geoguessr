@@ -1,0 +1,226 @@
+[
+  {
+    "id": "33rd-street-outfall",
+    "name": "33rd Street Outfall",
+    "description": "A stormwater outfall structure along the South Platte corridor in Denver's Globeville neighborhood.",
+    "coordinates": {
+      "lat": 39.7674,
+      "lng": -104.9877
+    },
+    "pov": {
+      "heading": 270,
+      "pitch": -5
+    },
+    "district": "Denver"
+  },
+  {
+    "id": "big-dry-creek-arapco",
+    "name": "Big Dry Creek (ArapCo)",
+    "description": "Big Dry Creek flows through Arapahoe County, providing flood control and open space along its corridor.",
+    "coordinates": {
+      "lat": 39.6503,
+      "lng": -104.9628
+    },
+    "pov": {
+      "heading": 90,
+      "pitch": -5
+    },
+    "district": "Arapahoe County"
+  },
+  {
+    "id": "boulder-creek",
+    "name": "Boulder Creek",
+    "description": "Boulder Creek runs through the heart of Boulder, emerging from the Rocky Mountains and threading through downtown.",
+    "coordinates": {
+      "lat": 40.0151,
+      "lng": -105.2705
+    },
+    "pov": {
+      "heading": 90,
+      "pitch": -10
+    },
+    "district": "Boulder"
+  },
+  {
+    "id": "cherry-creek",
+    "name": "Cherry Creek",
+    "description": "Cherry Creek is a major tributary of the South Platte River, flowing through southeast Denver and the Cherry Creek Reservoir.",
+    "coordinates": {
+      "lat": 39.7174,
+      "lng": -104.9498
+    },
+    "pov": {
+      "heading": 180,
+      "pitch": -5
+    },
+    "district": "Denver"
+  },
+  {
+    "id": "clear-creek",
+    "name": "Clear Creek",
+    "description": "Clear Creek carves through the foothills near Golden before flowing east across Jefferson and Adams counties.",
+    "coordinates": {
+      "lat": 39.7441,
+      "lng": -105.2253
+    },
+    "pov": {
+      "heading": 270,
+      "pitch": -5
+    },
+    "district": "Jefferson County"
+  },
+  {
+    "id": "first-creek-park",
+    "name": "First Creek Park",
+    "description": "First Creek Park in Denver and Aurora features a restored creek channel and naturalized floodplain.",
+    "coordinates": {
+      "lat": 39.7292,
+      "lng": -104.8413
+    },
+    "pov": {
+      "heading": 180,
+      "pitch": -5
+    },
+    "district": "Denver/Aurora"
+  },
+  {
+    "id": "grange-hall-creek",
+    "name": "Grange Hall Creek",
+    "description": "Grange Hall Creek is a tributary in Westminster that has been improved with urban stormwater infrastructure.",
+    "coordinates": {
+      "lat": 39.8205,
+      "lng": -104.9366
+    },
+    "pov": {
+      "heading": 270,
+      "pitch": -5
+    },
+    "district": "Westminster"
+  },
+  {
+    "id": "little-dry-creek-adco",
+    "name": "Little Dry Creek ADCO",
+    "description": "Little Dry Creek in Adams County serves as a key drainage corridor through the Commerce City area.",
+    "coordinates": {
+      "lat": 39.8362,
+      "lng": -104.9177
+    },
+    "pov": {
+      "heading": 90,
+      "pitch": -5
+    },
+    "district": "Adams County"
+  },
+  {
+    "id": "niver-creek-ruston-park",
+    "name": "Niver Creek Ruston Park",
+    "description": "Niver Creek runs through Ruston Park in Thornton, featuring naturalized banks and riparian habitat.",
+    "coordinates": {
+      "lat": 39.8648,
+      "lng": -104.9608
+    },
+    "pov": {
+      "heading": 180,
+      "pitch": -5
+    },
+    "district": "Thornton"
+  },
+  {
+    "id": "sanderson-gulch",
+    "name": "Sanderson Gulch",
+    "description": "Sanderson Gulch drains southwest Denver neighborhoods and flows to the South Platte River near Bear Creek.",
+    "coordinates": {
+      "lat": 39.6991,
+      "lng": -105.0283
+    },
+    "pov": {
+      "heading": 270,
+      "pitch": -5
+    },
+    "district": "Denver"
+  },
+  {
+    "id": "spr-confluence-park",
+    "name": "SPR Confluence Park",
+    "description": "Confluence Park is where Cherry Creek meets the South Platte River in lower downtown Denver — a landmark urban waterway space.",
+    "coordinates": {
+      "lat": 39.7558,
+      "lng": -105.0055
+    },
+    "pov": {
+      "heading": 0,
+      "pitch": -5
+    },
+    "district": "Denver"
+  },
+  {
+    "id": "spr-river-run",
+    "name": "SPR River Run",
+    "description": "The South Platte River Run corridor south of downtown Denver offers multi-use trail access along a restored river channel.",
+    "coordinates": {
+      "lat": 39.706,
+      "lng": -105.0089
+    },
+    "pov": {
+      "heading": 180,
+      "pitch": -5
+    },
+    "district": "Denver"
+  },
+  {
+    "id": "spr",
+    "name": "SPR",
+    "description": "A reach of the South Platte River flowing through central Denver, the backbone of the district's urban river system.",
+    "coordinates": {
+      "lat": 39.737,
+      "lng": -104.999
+    },
+    "pov": {
+      "heading": 0,
+      "pitch": -5
+    },
+    "district": "Denver"
+  },
+  {
+    "id": "van-bibber-drop-2",
+    "name": "Van Bibber Drop 2",
+    "description": "Van Bibber Creek flows through Arvada and features engineered grade control structures like this drop to prevent erosion.",
+    "coordinates": {
+      "lat": 39.7696,
+      "lng": -105.1614
+    },
+    "pov": {
+      "heading": 180,
+      "pitch": -10
+    },
+    "district": "Arvada"
+  },
+  {
+    "id": "west-fork-kenneys-run",
+    "name": "West Fork of Kenneys Run",
+    "description": "The West Fork of Kenneys Run drains a portion of Aurora's eastern neighborhoods before joining the main channel.",
+    "coordinates": {
+      "lat": 39.6789,
+      "lng": -104.8271
+    },
+    "pov": {
+      "heading": 90,
+      "pitch": -5
+    },
+    "district": "Aurora"
+  },
+  {
+    "id": "wonderland-creek",
+    "name": "Wonderland Creek",
+    "description": "Wonderland Creek flows through north Boulder near Wonderland Lake, a natural open space beloved by the community.",
+    "coordinates": {
+      "lat": 40.034,
+      "lng": -105.2936
+    },
+    "pov": {
+      "heading": 270,
+      "pitch": -5
+    },
+    "district": "Boulder"
+  }
+]

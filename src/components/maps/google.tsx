@@ -1,97 +1,83 @@
+import { Wrapper } from '@googlemaps/react-wrapper';
 import { useEffect, useRef, useState } from 'react';
-import { setOptions, importLibrary } from '@googlemaps/js-api-loader';
 import cn from '@/utils/cn';
 
 type StreetViewProps = {
   position: { lat: number; lng: number };
+  pov?: { heading: number; pitch: number };
   className?: string;
 };
 
-setOptions({
-  key: import.meta.env.VITE_GOOGLE_MAPS_API_KEY as string,
-  v: 'weekly',
-});
-
-const GoogleMap = ({ position, className }: StreetViewProps) => {
+const StreetView = ({ position, pov, className }: StreetViewProps) => {
   const ref = useRef<HTMLDivElement>(null);
-  const panoramaRef = useRef<google.maps.StreetViewPanorama | null>(null);
-  const [error, setError] = useState<string | null>(null);
+  const [panorama, setPanorama] =
+    useState<google.maps.StreetViewPanorama | null>(null);
 
   useEffect(() => {
-    if (!ref.current) return;
+    if (ref.current && !panorama) {
+      setPanorama(new window.google.maps.StreetViewPanorama(ref.current, {}));
+    }
+  }, [ref, panorama]);
 
-    const container = ref.current;
-    let mounted = true;
-
-    const initStreetView = async () => {
-      try {
-        const { StreetViewPanorama, StreetViewService, StreetViewStatus } = 
-          await importLibrary('streetView') as google.maps.StreetViewLibrary;
-
-        if (!mounted || !container) return;
-
-        // Check if Street View is available at this location
-        const service = new StreetViewService();
-        service.getPanorama(
-          { location: position, radius: 50 },
-          (data, status) => {
-            if (!mounted) return;
-
-            if (status === StreetViewStatus.OK && data) {
-              // Create panorama
-              panoramaRef.current = new StreetViewPanorama(container, {
-                position,
-                pov: { heading: 0, pitch: 0 },
-                zoom: 1,
-                addressControl: false,
-                showRoadLabels: false,
-                linksControl: true,
-                panControl: true,
-                enableCloseButton: false,
-              });
-
-              setError(null);
-            } else {
-              setError('Street View not available at this location');
-              console.error('Street View status:', status);
-            }
-          }
-        );
-      } catch (err) {
-        if (mounted) {
-          console.error('Error loading Google Maps:', err);
-          setError('Failed to load Google Maps. Please check your API key and quota.');
-        }
-      }
-    };
-
-    initStreetView();
-
-    return () => {
-      mounted = false;
-      if (panoramaRef.current) {
-        // Properly clean up the panorama instance
-        panoramaRef.current.setVisible(false);
-        panoramaRef.current = null;
-      }
-      if (container) {
-        container.innerHTML = '';
-      }
-    };
-  }, [position.lat, position.lng]);
-
-  if (error) {
-    return (
-      <div className={cn('w-full h-full flex items-center justify-center bg-gray-900 text-white p-4', className)}>
-        <div className="text-center">
-          <p className="text-red-500 font-semibold mb-2">⚠️ Error</p>
-          <p className="text-sm">{error}</p>
-        </div>
-      </div>
-    );
-  }
+  useEffect(() => {
+    if (panorama) {
+      panorama.setOptions({
+        position,
+        pov: pov ?? { heading: 0, pitch: 0 },
+        zoom: 1,
+        addressControl: false,
+        showRoadLabels: false,
+        linksControl: true,
+        panControl: true,
+        enableCloseButton: false,
+      });
+    }
+  }, [panorama, position, pov]);
 
   return <div ref={ref} className={cn('w-full h-full', className)} />;
+};
+
+const GoogleMap = (props: StreetViewProps) => {
+  const [error, setError] = useState<string | null>(null);
+
+  return (
+    <Wrapper
+      apiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY as string}
+      render={(status) => {
+        switch (status) {
+          case 'LOADING':
+            return (
+              <div className="w-full h-full flex items-center justify-center bg-gray-900 text-white">
+                Loading...
+              </div>
+            );
+          case 'FAILURE':
+            setError(
+              'Failed to load Google Maps. Please check your API key and quota.',
+            );
+            return <></>;
+          case 'SUCCESS':
+            return <StreetView {...props} />;
+          default:
+            return <></>;
+        }
+      }}
+    >
+      {error && (
+        <div
+          className={cn(
+            'w-full h-full flex items-center justify-center bg-gray-900 text-white p-4',
+            props.className,
+          )}
+        >
+          <div className="text-center">
+            <p className="text-red-500 font-semibold mb-2">⚠️ Error</p>
+            <p className="text-sm">{error}</p>
+          </div>
+        </div>
+      )}
+    </Wrapper>
+  );
 };
 
 export default GoogleMap;

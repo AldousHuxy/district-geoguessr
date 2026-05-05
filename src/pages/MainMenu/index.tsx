@@ -5,8 +5,20 @@ import Carousel from '@/components/ui/carousel';
 import Button from '@/components/ui/button';
 import Modal from '@/components/ui/modal';
 import routes from '@/router';
+import { useGameStore } from '@/store/gameStore';
+import type { Location } from '@/store/gameStore';
+import locationsData from '@/data/locations.json';
 
 type EmailForm = { email: string };
+
+function shuffle<T>(arr: T[]): T[] {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
 
 const carouselImages = [
   '33rd Street Outfall.jpg',
@@ -31,8 +43,11 @@ const MainMenu = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const navigate = useNavigate();
   const { register, handleSubmit, formState: { errors } } = useForm<EmailForm>();
+  const startGame = useGameStore((s) => s.startGame);
 
-  const onSubmit = (_data: EmailForm) => {
+  const onSubmit = (data: EmailForm) => {
+    const shuffled = shuffle(locationsData as Location[]);
+    startGame(data.email, shuffled);
     setModalOpen(false);
     navigate(routes.game);
   };

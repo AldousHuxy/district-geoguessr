@@ -50,20 +50,19 @@ const Game = () => {
         center={currentLocation.coordinates}
         onGuess={setGuess}
         guessCoords={currentGuess}
-      />
-
-      {phase === 'playing' && (
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20">
+      >
+        {phase === 'playing' && (
           <Button
             variant={currentGuess ? 'primary' : 'dark'}
             size="lg"
             onClick={submitGuess}
             disabled={!currentGuess}
+            className="w-full"
           >
             {currentGuess ? 'Lock In Guess' : 'Click map to place pin'}
           </Button>
-        </div>
-      )}
+        )}
+      </ArcGISMap>
 
       {phase === 'result' && <RoundResult />}
       {phase === 'complete' && <GameSummary />}

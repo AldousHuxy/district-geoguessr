@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { type ReactNode, useEffect, useRef, useState } from 'react';
 import MapView from '@arcgis/core/views/MapView';
 import Map from '@arcgis/core/Map';
 import MapImageLayer from '@arcgis/core/layers/MapImageLayer';
@@ -24,9 +24,10 @@ type ArcGISMapProps = {
   onGuess?: (coords: { lat: number; lng: number }) => void;
   guessCoords?: { lat: number; lng: number } | null;
   className?: string;
+  children?: ReactNode;
 };
 
-const ArcGISMap = ({ center, onGuess, guessCoords, className }: ArcGISMapProps) => {
+const ArcGISMap = ({ center, onGuess, guessCoords, className, children }: ArcGISMapProps) => {
   const mapDivRef = useRef<HTMLDivElement>(null);
   const viewRef = useRef<MapView | null>(null);
   const graphicsLayerRef = useRef<GraphicsLayer | null>(null);
@@ -98,22 +99,31 @@ const ArcGISMap = ({ center, onGuess, guessCoords, className }: ArcGISMapProps) 
     <div
       style={{ cursor: 'default' }}
       className={cn(
-        'absolute bottom-4 right-16 z-10 overflow-hidden rounded-xl shadow-2xl transition-all duration-300',
-        expanded ? 'left-1/2 top-18 bottom-4' : 'w-64 h-48',
+        'absolute bottom-4 right-16 z-10 flex flex-col gap-2 transition-all duration-300',
+        expanded ? 'left-1/2 top-18' : 'w-64',
         className,
       )}
     >
-      <div ref={mapDivRef} className="w-full h-full" />
-
-      {/* Expand/collapse — stopPropagation prevents ArcGIS from swallowing the click */}
-      <button
-        onClick={(e) => { e.stopPropagation(); setExpanded((prev) => !prev); }}
-        style={{ cursor: 'pointer' }}
-        className="absolute top-2 left-2 z-20 flex items-center justify-center rounded-md bg-white/90 p-2 text-gray-800 shadow hover:bg-white transition-colors"
-        aria-label={expanded ? 'Collapse map' : 'Expand map'}
+      <div
+        className={cn(
+          'relative w-full overflow-hidden rounded-xl shadow-2xl',
+          expanded ? 'flex-1 min-h-0' : 'h-48',
+        )}
       >
-        {expanded ? <FaCompress size={12} /> : <FaExpand size={12} />}
-      </button>
+        <div ref={mapDivRef} className="w-full h-full" />
+
+        {/* Expand/collapse — stopPropagation prevents ArcGIS from swallowing the click */}
+        <button
+          onClick={(e) => { e.stopPropagation(); setExpanded((prev) => !prev); }}
+          style={{ cursor: 'pointer' }}
+          className="absolute top-2 left-2 z-20 flex items-center justify-center rounded-md bg-white/90 p-2 text-gray-800 shadow hover:bg-white transition-colors"
+          aria-label={expanded ? 'Collapse map' : 'Expand map'}
+        >
+          {expanded ? <FaCompress size={12} /> : <FaExpand size={12} />}
+        </button>
+      </div>
+
+      {children}
     </div>
   );
 };

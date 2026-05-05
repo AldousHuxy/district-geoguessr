@@ -54,22 +54,17 @@ const MainMenu = () => {
 
   return (
     <div className="relative h-dvh w-full overflow-hidden bg-dark-blue">
-      {/* Background carousel */}
       <Carousel images={carouselImages} className="absolute inset-0 w-full h-full" />
 
-      {/* Gradient overlay */}
       <div className="absolute inset-0 bg-linear-to-t from-dark-blue via-dark-blue/60 to-dark-blue/20" />
 
-      {/* Content */}
       <div className="relative z-10 flex flex-col items-center justify-between h-full px-6 pt-12 pb-16 safe-area-inset">
-        {/* Logo */}
         <img
           src="/MHFD Logo.png"
           alt="MHFD Logo"
           className="h-14 object-contain drop-shadow-lg"
         />
 
-        {/* Title block */}
         <div className="flex flex-col items-center gap-3 text-center">
           <h1 className="text-5xl font-bold text-bright-yellow leading-tight tracking-tight drop-shadow-lg">
             District<br />GeoGuesser
@@ -79,7 +74,6 @@ const MainMenu = () => {
           </p>
         </div>
 
-        {/* Actions */}
         <div className="flex flex-col w-full max-w-xs gap-3">
           <Button variant="primary" size="lg" className="w-full text-xl" onClick={() => setModalOpen(true)}>
             Play
@@ -87,8 +81,25 @@ const MainMenu = () => {
         </div>
       </div>
 
-      {/* Email modal */}
       <Modal open={modalOpen} onClose={() => setModalOpen(false)} title="Before you play...">
+        <ul className="flex flex-col gap-1.5 mb-4 text-sm text-sky-blue/70">
+          <li className="flex items-start gap-2">
+            <span className="text-bright-yellow shrink-0 mt-0.5">•</span>
+            <span>You'll be dropped into <span className="text-sky-blue font-medium">Google Street View</span> at a waterway somewhere in the MHFD district.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="text-bright-yellow shrink-0 mt-0.5">•</span>
+            <span>Look around for clues — signage, vegetation, landmarks — to figure out where you are.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="text-bright-yellow shrink-0 mt-0.5">•</span>
+            <span>Click the <span className="text-sky-blue font-medium">map in the corner</span> to drop a pin at your best guess, then hit <span className="text-sky-blue font-medium">Lock In Guess</span>.</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="text-bright-yellow shrink-0 mt-0.5">•</span>
+            <span>You have <span className="text-sky-blue font-medium">30 seconds</span> per round across all <span className="text-sky-blue font-medium">16 locations</span>. Closer guesses earn more points.</span>
+          </li>
+        </ul>
         <form onSubmit={handleSubmit(onSubmit)} noValidate className="flex flex-col gap-4">
           <div className="flex flex-col gap-1.5">
             <label htmlFor="email" className="text-sm text-sky-blue/80">

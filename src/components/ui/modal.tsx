@@ -26,7 +26,7 @@ const Modal = ({ open, onClose, children, title }: ModalProps) => {
           {/* Panel */}
           <motion.div
             key="panel"
-            className="fixed inset-x-4 top-1/2 z-50 -translate-y-1/2 rounded-2xl bg-dark-blue-100 border border-sky-blue/20 p-6 shadow-2xl max-w-sm mx-auto"
+            className="fixed inset-x-4 top-1/2 z-50 -translate-y-1/2 rounded-2xl bg-dark-blue-100 border border-sky-blue/20 p-6 shadow-2xl max-w-lg mx-auto overflow-y-auto max-h-[90dvh]"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}

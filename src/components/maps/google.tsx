@@ -8,33 +8,41 @@ type StreetViewProps = {
   className?: string;
 };
 
+const PANORAMA_OPTIONS: Omit<google.maps.StreetViewPanoramaOptions, 'position' | 'pov'> = {
+  zoom: 1,
+  visible: true,
+  addressControl: false,
+  showRoadLabels: false,
+  linksControl: true,
+  panControl: true,
+  enableCloseButton: false,
+};
+
 const StreetView = ({ position, pov, className }: StreetViewProps) => {
-  const ref = useRef<HTMLDivElement>(null);
-  const [panorama, setPanorama] =
-    useState<google.maps.StreetViewPanorama | null>(null);
+  const divRef = useRef<HTMLDivElement>(null);
+  const panoramaRef = useRef<google.maps.StreetViewPanorama | null>(null);
 
+  // Create panorama once with all options — avoids the two-effect black-frame gap
   useEffect(() => {
-    if (ref.current && !panorama) {
-      setPanorama(new window.google.maps.StreetViewPanorama(ref.current, {}));
-    }
-  }, [ref, panorama]);
+    if (!divRef.current) return;
+    panoramaRef.current = new window.google.maps.StreetViewPanorama(divRef.current, {
+      ...PANORAMA_OPTIONS,
+      position,
+      pov: pov ?? { heading: 0, pitch: 0 },
+    });
+    return () => {
+      panoramaRef.current = null;
+    };
+  }, []);
 
+  // Update position and POV individually — cheaper than setOptions, avoids tile burst
   useEffect(() => {
-    if (panorama) {
-      panorama.setOptions({
-        position,
-        pov: pov ?? { heading: 0, pitch: 0 },
-        zoom: 1,
-        addressControl: false,
-        showRoadLabels: false,
-        linksControl: true,
-        panControl: true,
-        enableCloseButton: false,
-      });
-    }
-  }, [panorama, position, pov]);
+    if (!panoramaRef.current) return;
+    panoramaRef.current.setPosition(position);
+    panoramaRef.current.setPov(pov ?? { heading: 0, pitch: 0 });
+  }, [position.lat, position.lng, pov?.heading, pov?.pitch]);
 
-  return <div ref={ref} className={cn('w-full h-full', className)} />;
+  return <div ref={divRef} className={cn('w-full h-full', className)} />;
 };
 
 const GoogleMap = (props: StreetViewProps) => {

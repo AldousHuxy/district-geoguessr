@@ -97,8 +97,8 @@ const ArcGISMap = ({ center, onGuess, guessCoords, className }: ArcGISMapProps) 
     <div
       style={{ cursor: 'default' }}
       className={cn(
-        'absolute bottom-4 right-4 z-10 overflow-hidden rounded-xl shadow-2xl transition-all duration-300',
-        expanded ? 'left-4 top-12 bottom-4' : 'w-64 h-48',
+        'absolute bottom-4 right-16 z-10 overflow-hidden rounded-xl shadow-2xl transition-all duration-300',
+        expanded ? 'left-4 top-18 bottom-4' : 'w-64 h-48',
         className,
       )}
     >

@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>District Geoguesser</title>
+    <script>
+      // SPA redirect for GitHub Pages.
+      // Encodes the current path/query/hash into a query parameter on the
+      // root index.html so the History API route is restored after load.
+      var l = window.location;
+      l.replace(
+        l.protocol +
+          '//' +
+          l.hostname +
+          (l.port ? ':' + l.port : '') +
+          l.pathname
+            .split('/')
+            .slice(0, 1 + 1)
+            .join('/') +
+          '/?p=/' +
+          l.pathname.slice(1).split('/').slice(1).join('/').replace(/&/g, '~and~') +
+          (l.search ? '&q=' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+          l.hash
+      );
+    </script>
+  </head>
+  <body></body>
+</html>

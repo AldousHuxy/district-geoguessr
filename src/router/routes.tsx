@@ -13,5 +13,6 @@ export const router = createBrowserRouter(
             <Route path={routes.game} element={<Game />} />
             <Route path={routes.unknown} element={<Navigate to={routes.menu} />} />
         </Route>
-    )
+    ),
+    { basename: '/district-geoguesser' }
 );

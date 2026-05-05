@@ -5,7 +5,7 @@ import Carousel from '@/components/ui/carousel';
 import Button from '@/components/ui/button';
 import Modal from '@/components/ui/modal';
 import routes from '@/router';
-import { useGameStore } from '@/store/gameStore';
+import { ROUND_TIME, useGameStore } from '@/store/gameStore';
 import type { Location } from '@/store/gameStore';
 import locationsData from '@/data/locations.json';
 
@@ -67,10 +67,10 @@ const MainMenu = () => {
 
         <div className="flex flex-col items-center gap-3 text-center">
           <h1 className="text-5xl font-bold text-bright-yellow leading-tight tracking-tight drop-shadow-lg">
-            District<br />GeoGuesser
+            District<br />Geoguesser
           </h1>
           <p className="text-sky-blue/80 text-base max-w-xs">
-            Can you identify your local waterways?
+            How well do you know the District?
           </p>
         </div>
 
@@ -97,7 +97,7 @@ const MainMenu = () => {
           </li>
           <li className="flex items-start gap-2">
             <span className="text-bright-yellow shrink-0 mt-0.5">•</span>
-            <span>You have <span className="text-sky-blue font-medium">30 seconds</span> per round across all <span className="text-sky-blue font-medium">16 locations</span>. Closer guesses earn more points.</span>
+            <span>You have <span className="text-sky-blue font-medium">{ROUND_TIME} seconds</span> per round across all <span className="text-sky-blue font-medium">{locationsData.length} locations</span>. Closer guesses earn more points.</span>
           </li>
         </ul>
         <form onSubmit={handleSubmit(onSubmit)} noValidate className="flex flex-col gap-4">

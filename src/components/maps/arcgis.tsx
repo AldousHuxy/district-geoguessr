@@ -66,9 +66,10 @@ const ArcGISMap = ({ center, onGuess, guessCoords, className }: ArcGISMapProps) 
     };
   }, []);
 
-  // Reset to MHFD extent when a new round starts (center prop changes)
+  // Reset to MHFD extent and collapse when a new round starts (center prop changes)
   useEffect(() => {
     if (!viewRef.current) return;
+    setExpanded(false);
     viewRef.current.goTo(MHFD_EXTENT).catch(() => {});
   }, [center?.lat, center?.lng]);
 
@@ -98,7 +99,7 @@ const ArcGISMap = ({ center, onGuess, guessCoords, className }: ArcGISMapProps) 
       style={{ cursor: 'default' }}
       className={cn(
         'absolute bottom-4 right-16 z-10 overflow-hidden rounded-xl shadow-2xl transition-all duration-300',
-        expanded ? 'left-4 top-18 bottom-4' : 'w-64 h-48',
+        expanded ? 'left-1/2 top-18 bottom-4' : 'w-64 h-48',
         className,
       )}
     >

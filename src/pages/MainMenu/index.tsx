@@ -67,7 +67,7 @@ const MainMenu = () => {
 
         <div className="flex flex-col items-center gap-3 text-center">
           <h1 className="text-5xl font-bold text-bright-yellow leading-tight tracking-tight drop-shadow-lg">
-            District<br />Geoguesser
+            District<br />Geoguessr
           </h1>
           <p className="text-sky-blue/80 text-base max-w-xs">
             How well do you know the District?

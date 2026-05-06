@@ -1,16 +1,27 @@
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useGameStore } from '@/store/gameStore';
+import { useSaveScore } from '@/hooks/useSaveScore';
 import Button from '@/components/ui/button';
 import routes from '@/router';
 
 const GameSummary = () => {
   const results = useGameStore((s) => s.results);
   const resetGame = useGameStore((s) => s.resetGame);
+  const playerEmail = useGameStore((s) => s.playerEmail);
   const navigate = useNavigate();
+  const { mutate: saveScore, error: saveError, isSuccess: saveSuccess } = useSaveScore();
 
   const totalScore = results.reduce((sum, r) => sum + r.score, 0);
   const maxScore = results.length * 5000;
+
+  useEffect(() => {
+    if (playerEmail) {
+      saveScore({ email: playerEmail, score: totalScore });
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const handlePlayAgain = () => {
     resetGame();
@@ -71,6 +82,17 @@ const GameSummary = () => {
             </div>
           ))}
         </div>
+
+        {saveError && (
+          <div className="mb-4 rounded-xl border border-red-500/40 bg-red-500/10 px-4 py-3 text-center text-sm text-red-400">
+            {saveError.message}
+          </div>
+        )}
+        {saveSuccess && (
+          <div className="mb-4 rounded-xl border border-soft-green/40 bg-soft-green/10 px-4 py-3 text-center text-sm text-soft-green">
+            Score saved!
+          </div>
+        )}
 
         <Button variant="primary" size="lg" className="w-full" onClick={handlePlayAgain}>
           Play Again

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { MdHistory } from 'react-icons/md';
 import { useForm } from 'react-hook-form';
 import Carousel from '@/components/ui/carousel';
 import Button from '@/components/ui/button';
@@ -75,9 +76,14 @@ const MainMenu = () => {
         </div>
 
         <div className="flex flex-col w-full max-w-xs gap-3">
-          <Button variant="primary" size="lg" className="w-full text-xl" onClick={() => setModalOpen(true)}>
-            Play
-          </Button>
+          <div className="flex items-center gap-3">
+            <Button variant="primary" size="lg" className="flex-1 text-xl" onClick={() => setModalOpen(true)}>
+              Play
+            </Button>
+            <Button variant="ghost" size="lg" onClick={() => navigate(routes.highScores)} aria-label="High Scores">
+              <MdHistory size={24} />
+            </Button>
+          </div>
         </div>
       </div>
 

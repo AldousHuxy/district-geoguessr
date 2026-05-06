@@ -1,226 +1,106 @@
 [
   {
-    "id": "33rd-street-outfall",
-    "name": "33rd Street Outfall",
-    "description": "A stormwater outfall structure along the South Platte corridor in Denver's Globeville neighborhood.",
-    "coordinates": {
-      "lat": 39.7674,
-      "lng": -104.9877
-    },
-    "pov": {
-      "heading": 270,
-      "pitch": -5
-    },
-    "district": "Denver"
+    "id": "mineral-ave-spr",
+    "name": "Mineral Ave & SPR",
+    "description": "The intersection of Mineral Avenue and the South Platte River in Littleton, a key confluence point in the district.",
+    "coordinates": { "lat": 39.58113, "lng": -105.0322448 },
+    "pov": { "heading": 0, "pitch": 0 },
+    "district": "Active"
   },
   {
-    "id": "big-dry-creek-arapco",
-    "name": "Big Dry Creek (ArapCo)",
-    "description": "Big Dry Creek flows through Arapahoe County, providing flood control and open space along its corridor.",
-    "coordinates": {
-      "lat": 39.6503,
-      "lng": -104.9628
-    },
-    "pov": {
-      "heading": 90,
-      "pitch": -5
-    },
-    "district": "Arapahoe County"
+    "id": "gregory-canyon-creek",
+    "name": "Gregory Canyon Creek @ Arapahoe to Pennsylvania",
+    "description": "A 2018 restoration reach of Gregory Canyon Creek in Boulder, spanning from Arapahoe Avenue to Pennsylvania Avenue.",
+    "coordinates": { "lat": 40.0082801, "lng": -105.2855867 },
+    "pov": { "heading": 90, "pitch": 0 },
+    "district": "Active"
   },
   {
-    "id": "boulder-creek",
-    "name": "Boulder Creek",
-    "description": "Boulder Creek runs through the heart of Boulder, emerging from the Rocky Mountains and threading through downtown.",
-    "coordinates": {
-      "lat": 40.0151,
-      "lng": -105.2705
-    },
-    "pov": {
-      "heading": 90,
-      "pitch": -10
-    },
-    "district": "Boulder"
+    "id": "colfax-yosemite",
+    "name": "Colfax & Yosemite",
+    "description": "The intersection of Colfax Avenue and Yosemite Street in Aurora, a significant cross-street corridor.",
+    "coordinates": { "lat": 39.7401192, "lng": -104.8846783 },
+    "pov": { "heading": 180, "pitch": 0 },
+    "district": "Active"
   },
   {
-    "id": "cherry-creek",
-    "name": "Cherry Creek",
-    "description": "Cherry Creek is a major tributary of the South Platte River, flowing through southeast Denver and the Cherry Creek Reservoir.",
-    "coordinates": {
-      "lat": 39.7174,
-      "lng": -104.9498
-    },
-    "pov": {
-      "heading": 180,
-      "pitch": -5
-    },
-    "district": "Denver"
+    "id": "anderson-park",
+    "name": "Anderson Park",
+    "description": "Anderson Park in Lakewood features open green space and stormwater improvements along its creek corridor.",
+    "coordinates": { "lat": 39.7777028, "lng": -105.096329 },
+    "pov": { "heading": 270, "pitch": 0 },
+    "district": "Active"
   },
   {
-    "id": "clear-creek",
-    "name": "Clear Creek",
-    "description": "Clear Creek carves through the foothills near Golden before flowing east across Jefferson and Adams counties.",
-    "coordinates": {
-      "lat": 39.7441,
-      "lng": -105.2253
-    },
-    "pov": {
-      "heading": 270,
-      "pitch": -5
-    },
-    "district": "Jefferson County"
+    "id": "cherry-creek-trail-larimer",
+    "name": "Cherry Creek Trail @ Larimer",
+    "description": "The Cherry Creek Trail at Larimer Street in Denver, a popular multi-use trail along the creek corridor.",
+    "coordinates": { "lat": 39.7465296, "lng": -105.0003199 },
+    "pov": { "heading": 0, "pitch": 0 },
+    "district": "Not a Project"
   },
   {
-    "id": "first-creek-park",
-    "name": "First Creek Park",
-    "description": "First Creek Park in Denver and Aurora features a restored creek channel and naturalized floodplain.",
-    "coordinates": {
-      "lat": 39.7292,
-      "lng": -104.8413
-    },
-    "pov": {
-      "heading": 180,
-      "pitch": -5
-    },
-    "district": "Denver/Aurora"
+    "id": "river-run",
+    "name": "River Run",
+    "description": "A reach of the South Platte River south of downtown Denver, offering trail access along a restored river channel.",
+    "coordinates": { "lat": 39.6422943, "lng": -105.0152723 },
+    "pov": { "heading": 90, "pitch": 0 },
+    "district": "Not a Project"
   },
   {
-    "id": "grange-hall-creek",
-    "name": "Grange Hall Creek",
-    "description": "Grange Hall Creek is a tributary in Westminster that has been improved with urban stormwater infrastructure.",
-    "coordinates": {
-      "lat": 39.8205,
-      "lng": -104.9366
-    },
-    "pov": {
-      "heading": 270,
-      "pitch": -5
-    },
-    "district": "Westminster"
+    "id": "bear-creek-lake",
+    "name": "Bear Creek Lake",
+    "description": "Bear Creek Lake Park in Lakewood, a regional park and reservoir at the confluence of Bear Creek and the South Platte.",
+    "coordinates": { "lat": 39.641778, "lng": -105.1737053 },
+    "pov": { "heading": 180, "pitch": 0 },
+    "district": "Not a Project"
   },
   {
-    "id": "little-dry-creek-adco",
-    "name": "Little Dry Creek ADCO",
-    "description": "Little Dry Creek in Adams County serves as a key drainage corridor through the Commerce City area.",
-    "coordinates": {
-      "lat": 39.8362,
-      "lng": -104.9177
-    },
-    "pov": {
-      "heading": 90,
-      "pitch": -5
-    },
-    "district": "Adams County"
+    "id": "cherry-creek-dam",
+    "name": "Cherry Creek Dam",
+    "description": "Cherry Creek Dam and Reservoir in Aurora, a major flood control structure on the Cherry Creek corridor.",
+    "coordinates": { "lat": 39.6469456, "lng": -104.8633278 },
+    "pov": { "heading": 270, "pitch": 0 },
+    "district": "Not a Project"
   },
   {
-    "id": "niver-creek-ruston-park",
-    "name": "Niver Creek Ruston Park",
-    "description": "Niver Creek runs through Ruston Park in Thornton, featuring naturalized banks and riparian habitat.",
-    "coordinates": {
-      "lat": 39.8648,
-      "lng": -104.9608
-    },
-    "pov": {
-      "heading": 180,
-      "pitch": -5
-    },
-    "district": "Thornton"
+    "id": "cherry-creek-lowell",
+    "name": "Cherry Creek @ Lowell",
+    "description": "Cherry Creek at Lowell Boulevard in north Denver, where the creek flows through established residential neighborhoods.",
+    "coordinates": { "lat": 39.7979088, "lng": -105.0346777 },
+    "pov": { "heading": 0, "pitch": 0 },
+    "district": "Not a Project"
   },
   {
-    "id": "sanderson-gulch",
-    "name": "Sanderson Gulch",
-    "description": "Sanderson Gulch drains southwest Denver neighborhoods and flows to the South Platte River near Bear Creek.",
-    "coordinates": {
-      "lat": 39.6991,
-      "lng": -105.0283
-    },
-    "pov": {
-      "heading": 270,
-      "pitch": -5
-    },
-    "district": "Denver"
+    "id": "dia",
+    "name": "DIA",
+    "description": "The Denver International Airport area, located on the eastern plains northeast of Denver.",
+    "coordinates": { "lat": 39.8337773, "lng": -104.7394713 },
+    "pov": { "heading": 90, "pitch": 0 },
+    "district": "Not a Project"
   },
   {
-    "id": "spr-confluence-park",
-    "name": "SPR Confluence Park",
-    "description": "Confluence Park is where Cherry Creek meets the South Platte River in lower downtown Denver — a landmark urban waterway space.",
-    "coordinates": {
-      "lat": 39.7558,
-      "lng": -105.0055
-    },
-    "pov": {
-      "heading": 0,
-      "pitch": -5
-    },
-    "district": "Denver"
+    "id": "city-park",
+    "name": "City Park",
+    "description": "Denver's City Park, a large urban park in northeast Denver featuring lakes, the zoo, and the natural history museum.",
+    "coordinates": { "lat": 39.7457467, "lng": -104.9546691 },
+    "pov": { "heading": 180, "pitch": 0 },
+    "district": "Parks"
   },
   {
-    "id": "spr-river-run",
-    "name": "SPR River Run",
-    "description": "The South Platte River Run corridor south of downtown Denver offers multi-use trail access along a restored river channel.",
-    "coordinates": {
-      "lat": 39.706,
-      "lng": -105.0089
-    },
-    "pov": {
-      "heading": 180,
-      "pitch": -5
-    },
-    "district": "Denver"
+    "id": "cheesman-park",
+    "name": "Cheesman Park",
+    "description": "Cheesman Park is a historic Denver park in the Capitol Hill neighborhood, known for its open lawn and city views.",
+    "coordinates": { "lat": 39.7319499, "lng": -104.9678966 },
+    "pov": { "heading": 270, "pitch": 0 },
+    "district": "Parks"
   },
   {
-    "id": "spr",
-    "name": "SPR",
-    "description": "A reach of the South Platte River flowing through central Denver, the backbone of the district's urban river system.",
-    "coordinates": {
-      "lat": 39.737,
-      "lng": -104.999
-    },
-    "pov": {
-      "heading": 0,
-      "pitch": -5
-    },
-    "district": "Denver"
-  },
-  {
-    "id": "van-bibber-drop-2",
-    "name": "Van Bibber Drop 2",
-    "description": "Van Bibber Creek flows through Arvada and features engineered grade control structures like this drop to prevent erosion.",
-    "coordinates": {
-      "lat": 39.7696,
-      "lng": -105.1614
-    },
-    "pov": {
-      "heading": 180,
-      "pitch": -10
-    },
-    "district": "Arvada"
-  },
-  {
-    "id": "west-fork-kenneys-run",
-    "name": "West Fork of Kenneys Run",
-    "description": "The West Fork of Kenneys Run drains a portion of Aurora's eastern neighborhoods before joining the main channel.",
-    "coordinates": {
-      "lat": 39.6789,
-      "lng": -104.8271
-    },
-    "pov": {
-      "heading": 90,
-      "pitch": -5
-    },
-    "district": "Aurora"
-  },
-  {
-    "id": "wonderland-creek",
-    "name": "Wonderland Creek",
-    "description": "Wonderland Creek flows through north Boulder near Wonderland Lake, a natural open space beloved by the community.",
-    "coordinates": {
-      "lat": 40.034,
-      "lng": -105.2936
-    },
-    "pov": {
-      "heading": 270,
-      "pitch": -5
-    },
-    "district": "Boulder"
+    "id": "wash-park",
+    "name": "Wash Park",
+    "description": "Washington Park in south Denver, a beloved urban park with two lakes, gardens, and extensive recreation facilities.",
+    "coordinates": { "lat": 39.6984492, "lng": -104.9687175 },
+    "pov": { "heading": 0, "pitch": 0 },
+    "district": "Parks"
   }
 ]

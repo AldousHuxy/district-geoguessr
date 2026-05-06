@@ -50,7 +50,7 @@ const GoogleMap = (props: StreetViewProps) => {
 
   return (
     <Wrapper
-      apiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY as string}
+      apiKey="AIzaSyC5of7PnI726V1kQra-5oEdI-n-VT4fWXU"
       render={(status) => {
         switch (status) {
           case 'LOADING':

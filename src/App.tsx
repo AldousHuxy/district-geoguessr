@@ -4,7 +4,7 @@ import { useTest } from './hooks/useTest';
 const App = () => {
   const { msg } = useTest();
 
-  console.log(msg);
+  console.log('API', msg);
 
   return (
     <Outlet />

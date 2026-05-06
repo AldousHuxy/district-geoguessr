@@ -1,6 +1,5 @@
 import { useNavigate } from 'react-router-dom';
 import { FiArrowLeft } from 'react-icons/fi';
-import Button from '@/components/ui/button';
 import routes from '@/router';
 import { useTopScores } from '@/hooks/useTopScores';
 import type { Score } from '@/types/score';

@@ -101,7 +101,7 @@ const ArcGISMap = ({ center, onGuess, guessCoords, className, children }: ArcGIS
       className={cn(
         'absolute z-10 flex flex-col gap-2 transition-all duration-300',
         expanded
-          ? 'inset-0 md:left-1/2 md:top-18 md:bottom-4 md:right-16'
+          ? 'top-16 left-0 right-0 bottom-0 md:left-1/2 md:top-18 md:bottom-4 md:right-16'
           : 'w-40 bottom-3 right-3 md:w-64 md:bottom-4 md:right-16',
         className,
       )}

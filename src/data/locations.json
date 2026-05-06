@@ -1,13 +1,5 @@
 [
   {
-    "id": "mineral-ave-spr",
-    "name": "Mineral Ave & SPR",
-    "description": "The intersection of Mineral Avenue and the South Platte River in Littleton, a key confluence point in the district.",
-    "coordinates": { "lat": 39.58113, "lng": -105.0322448 },
-    "pov": { "heading": 0, "pitch": 0 },
-    "district": "Active"
-  },
-  {
     "id": "gregory-canyon-creek",
     "name": "Gregory Canyon Creek @ Arapahoe to Pennsylvania",
     "description": "A 2018 restoration reach of Gregory Canyon Creek in Boulder, spanning from Arapahoe Avenue to Pennsylvania Avenue.",
@@ -21,14 +13,6 @@
     "description": "The intersection of Colfax Avenue and Yosemite Street in Aurora, a significant cross-street corridor.",
     "coordinates": { "lat": 39.7401192, "lng": -104.8846783 },
     "pov": { "heading": 180, "pitch": 0 },
-    "district": "Active"
-  },
-  {
-    "id": "anderson-park",
-    "name": "Anderson Park",
-    "description": "Anderson Park in Lakewood features open green space and stormwater improvements along its creek corridor.",
-    "coordinates": { "lat": 39.7777028, "lng": -105.096329 },
-    "pov": { "heading": 270, "pitch": 0 },
     "district": "Active"
   },
   {
@@ -93,14 +77,6 @@
     "description": "Cheesman Park is a historic Denver park in the Capitol Hill neighborhood, known for its open lawn and city views.",
     "coordinates": { "lat": 39.7319499, "lng": -104.9678966 },
     "pov": { "heading": 270, "pitch": 0 },
-    "district": "Parks"
-  },
-  {
-    "id": "wash-park",
-    "name": "Wash Park",
-    "description": "Washington Park in south Denver, a beloved urban park with two lakes, gardens, and extensive recreation facilities.",
-    "coordinates": { "lat": 39.6984492, "lng": -104.9687175 },
-    "pov": { "heading": 0, "pitch": 0 },
     "district": "Parks"
   }
 ]

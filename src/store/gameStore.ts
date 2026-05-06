@@ -41,7 +41,7 @@ type GameActions = {
   resetGame: () => void;
 };
 
-export const ROUND_TIME: number = 30;
+export const ROUND_TIME: number = 45;
 
 export const useGameStore = create<GameState & GameActions>((set, get) => ({
   phase: 'idle',

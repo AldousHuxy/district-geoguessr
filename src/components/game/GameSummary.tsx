@@ -1,6 +1,7 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { MdHome } from 'react-icons/md';
 import { useGameStore } from '@/store/gameStore';
 import { useSaveScore } from '@/hooks/useSaveScore';
 import Button from '@/components/ui/button';
@@ -12,12 +13,14 @@ const GameSummary = () => {
   const playerEmail = useGameStore((s) => s.playerEmail);
   const navigate = useNavigate();
   const { mutate: saveScore, error: saveError, isSuccess: saveSuccess } = useSaveScore();
+  const scoreSaved = useRef(false);
 
   const totalScore = results.reduce((sum, r) => sum + r.score, 0);
   const maxScore = results.length * 5000;
 
   useEffect(() => {
-    if (playerEmail) {
+    if (playerEmail && !scoreSaved.current) {
+      scoreSaved.current = true;
       saveScore({ email: playerEmail, score: totalScore });
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -94,9 +97,14 @@ const GameSummary = () => {
           </div>
         )}
 
-        <Button variant="primary" size="lg" className="w-full" onClick={handlePlayAgain}>
-          Play Again
-        </Button>
+        <div className="flex gap-3">
+          <Button variant="dark" size="lg" className="shrink-0" onClick={handlePlayAgain} aria-label="Home">
+            <MdHome className="text-xl" />
+          </Button>
+          <Button variant="primary" size="lg" className="flex-1" onClick={handlePlayAgain}>
+            Play Again
+          </Button>
+        </div>
       </div>
     </motion.div>
   );

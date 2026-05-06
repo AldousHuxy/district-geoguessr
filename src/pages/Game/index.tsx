@@ -37,7 +37,7 @@ const Game = () => {
   if (!currentLocation) return null;
 
   return (
-    <div className="relative h-dvh w-full overflow-hidden bg-dark-blue">
+    <div className="relative h-dvh w-full overflow-hidden overscroll-none bg-dark-blue">
       <GoogleMap
         position={currentLocation.coordinates}
         pov={currentLocation.pov}
@@ -59,7 +59,7 @@ const Game = () => {
             disabled={!currentGuess}
             className="w-full"
           >
-            {currentGuess ? 'Lock In Guess' : 'Click map to place pin'}
+            {currentGuess ? 'Lock In Guess' : 'Tap map to place pin'}
           </Button>
         )}
       </ArcGISMap>

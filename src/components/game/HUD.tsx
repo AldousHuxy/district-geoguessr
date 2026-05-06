@@ -11,7 +11,9 @@ const HUD = () => {
   const isLowTime = timeRemaining <= 15;
 
   return (
-    <div className="absolute top-0 left-0 right-0 z-20 flex items-center justify-between px-5 py-3 bg-dark-blue/70 backdrop-blur-sm">
+    <div
+      style={{ paddingTop: 'max(12px, env(safe-area-inset-top))' }}
+      className="absolute top-0 left-0 right-0 z-20 flex items-center justify-between px-5 pb-3 bg-dark-blue/70 backdrop-blur-sm">
       <span className="text-sky-blue font-semibold text-sm">
         Round {currentRoundIndex + 1} / {rounds.length}
       </span>

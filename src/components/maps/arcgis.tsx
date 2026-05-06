@@ -55,7 +55,7 @@ const ArcGISMap = ({ center, onGuess, guessCoords, className, children }: ArcGIS
     });
     viewRef.current = view;
 
-    const clickHandle = view.on('click', (event) => {
+    const clickHandle = view.on('immediate-click', (event) => {
       const { latitude, longitude } = event.mapPoint;
       if (latitude == null || longitude == null) return;
       onGuessRef.current?.({ lat: latitude, lng: longitude });
@@ -99,24 +99,30 @@ const ArcGISMap = ({ center, onGuess, guessCoords, className, children }: ArcGIS
     <div
       style={{ cursor: 'default' }}
       className={cn(
-        'absolute bottom-4 right-16 z-10 flex flex-col gap-2 transition-all duration-300',
-        expanded ? 'left-1/2 top-18' : 'w-64',
+        'absolute z-10 flex flex-col gap-2 transition-all duration-300',
+        expanded
+          ? 'inset-0 md:left-1/2 md:top-18 md:bottom-4 md:right-16'
+          : 'w-40 bottom-3 right-3 md:w-64 md:bottom-4 md:right-16',
         className,
       )}
     >
       <div
         className={cn(
           'relative w-full overflow-hidden rounded-xl shadow-2xl',
-          expanded ? 'flex-1 min-h-0' : 'h-48',
+          expanded ? 'flex-1 min-h-0' : 'h-32 md:h-48',
         )}
       >
-        <div ref={mapDivRef} className="w-full h-full" />
+        <div
+          ref={mapDivRef}
+          className="w-full h-full"
+          style={{ touchAction: 'none', userSelect: 'none' }}
+        />
 
         {/* Expand/collapse — stopPropagation prevents ArcGIS from swallowing the click */}
         <button
           onClick={(e) => { e.stopPropagation(); setExpanded((prev) => !prev); }}
           style={{ cursor: 'pointer' }}
-          className="absolute top-2 left-2 z-20 flex items-center justify-center rounded-md bg-white/90 p-2 text-gray-800 shadow hover:bg-white transition-colors"
+          className="absolute top-2 left-2 z-20 flex items-center justify-center rounded-md bg-white/90 p-3 text-gray-800 shadow hover:bg-white transition-colors"
           aria-label={expanded ? 'Collapse map' : 'Expand map'}
         >
           {expanded ? <FaCompress size={12} /> : <FaExpand size={12} />}

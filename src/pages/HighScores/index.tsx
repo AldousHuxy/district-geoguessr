@@ -1,12 +1,25 @@
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FiArrowLeft } from 'react-icons/fi';
+import { FiArrowLeft, FiTrash2 } from 'react-icons/fi';
 import routes from '@/router';
 import { useTopScores } from '@/hooks/useTopScores';
+import { useClearScores } from '@/hooks/useClearScores';
+import Button from '@/components/ui/button';
+import Modal from '@/components/ui/modal';
 import type { Score } from '@/types/score';
 
 const HighScores = () => {
+  const [resetModalOpen, setResetModalOpen] = useState(false);
+  const [resetToken, setResetToken] = useState('');
   const navigate = useNavigate();
   const { topScores, isLoading, error } = useTopScores();
+  const clearScores = useClearScores();
+
+  const openResetModal = () => {
+    setResetToken('');
+    clearScores.reset();
+    setResetModalOpen(true);
+  };
 
   return (
     <div className="min-h-dvh w-full bg-dark-blue flex flex-col items-center px-6 pt-12 pb-16">
@@ -19,7 +32,16 @@ const HighScores = () => {
           >
             <FiArrowLeft size={24} />
           </button>
-          <h1 className="text-3xl font-bold text-bright-yellow tracking-tight">High Scores</h1>
+          <h1 className="text-3xl font-bold text-bright-yellow tracking-tight flex-1">High Scores</h1>
+          <button
+            type="button"
+            onClick={openResetModal}
+            className="text-red-400 hover:text-red-300 transition-colors cursor-pointer"
+            aria-label="Reset high scores"
+            title="Reset high scores"
+          >
+            <FiTrash2 size={20} />
+          </button>
         </div>
 
         {isLoading && (
@@ -66,6 +88,69 @@ const HighScores = () => {
           <p className="text-sky-blue/60 text-center mt-16">No scores yet. Be the first!</p>
         )}
       </div>
+
+      <Modal
+        open={resetModalOpen}
+        onClose={() => {
+          if (!clearScores.isPending) setResetModalOpen(false);
+        }}
+        title="Reset all high scores?"
+      >
+        <p className="text-sky-blue/70 mb-4">
+          This permanently deletes every saved score and attempt. Enter the reset key to continue.
+        </p>
+        <form
+          className="flex flex-col gap-4"
+          onSubmit={(event) => {
+            event.preventDefault();
+            clearScores.mutate(resetToken, {
+              onSuccess: () => {
+                setResetToken('');
+                setResetModalOpen(false);
+              },
+            });
+          }}
+        >
+          <div className="flex flex-col gap-1.5">
+            <label htmlFor="score-reset-token" className="text-sm text-sky-blue/80">
+              Reset key
+            </label>
+            <input
+              id="score-reset-token"
+              type="password"
+              autoComplete="off"
+              required
+              value={resetToken}
+              onChange={(event) => setResetToken(event.target.value)}
+              className="w-full rounded-lg bg-dark-blue border border-sky-blue/30 text-sky-blue placeholder:text-sky-blue/30 px-4 py-3 text-base outline-none focus:border-sky-blue transition-colors"
+              disabled={clearScores.isPending}
+            />
+          </div>
+          {clearScores.error && (
+            <p role="alert" className="text-red-400 text-sm">
+              {clearScores.error.message || 'Unable to reset high scores.'}
+            </p>
+          )}
+          <div className="flex gap-3">
+            <Button
+              type="button"
+              variant="dark"
+              className="flex-1"
+              onClick={() => setResetModalOpen(false)}
+              disabled={clearScores.isPending}
+            >
+              Cancel
+            </Button>
+            <Button
+              type="submit"
+              className="flex-1 bg-red-600 text-white hover:bg-red-500"
+              disabled={clearScores.isPending || !resetToken}
+            >
+              {clearScores.isPending ? 'Clearing...' : 'Clear scores'}
+            </Button>
+          </div>
+        </form>
+      </Modal>
     </div>
   );
 };

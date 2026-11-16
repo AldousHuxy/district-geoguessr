@@ -4,5 +4,6 @@ export default {
     TEST: `${BASE}/api`,
     ALL_SCORES: `${BASE}/api/scores`,
     TOP_SCORES: `${BASE}/api/scores/top`,
-    POST_SCORE: `${BASE}/api/scores`
+    POST_SCORE: `${BASE}/api/scores`,
+    CLEAR_SCORES: `${BASE}/api/scores`
 }

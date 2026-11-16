@@ -1,5 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import type { ReactNode } from 'react';
+import { useId } from 'react';
+import type { KeyboardEvent, ReactNode } from 'react';
 
 type ModalProps = {
   open: boolean;
@@ -9,6 +10,8 @@ type ModalProps = {
 };
 
 const Modal = ({ open, onClose, children, title }: ModalProps) => {
+  const titleId = useId();
+
   return (
     <AnimatePresence>
       {open && (
@@ -31,9 +34,16 @@ const Modal = ({ open, onClose, children, title }: ModalProps) => {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ type: 'spring', stiffness: 320, damping: 28 }}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby={title ? titleId : undefined}
+            tabIndex={-1}
+            onKeyDown={(event: KeyboardEvent<HTMLDivElement>) => {
+              if (event.key === 'Escape') onClose();
+            }}
           >
             {title && (
-              <h2 className="text-xl font-bold text-sky-blue mb-4">{title}</h2>
+              <h2 id={titleId} className="text-xl font-bold text-sky-blue mb-4">{title}</h2>
             )}
             {children}
           </motion.div>

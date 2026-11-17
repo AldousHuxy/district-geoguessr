@@ -4,6 +4,7 @@ import { RouterProvider } from 'react-router-dom';
 import { router } from '@/router/routes';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import '@arcgis/core/assets/esri/themes/light/main.css';
 import '@/index.css';
 
 const queryClient = new QueryClient();

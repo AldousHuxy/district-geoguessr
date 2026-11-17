@@ -48,6 +48,8 @@ const Game = () => {
 
       <ArcGISMap
         center={currentLocation.coordinates}
+        roundIndex={currentRoundIndex}
+        playing={phase === 'playing'}
         onGuess={setGuess}
         guessCoords={currentGuess}
       >

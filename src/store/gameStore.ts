@@ -42,6 +42,7 @@ type GameActions = {
 };
 
 export const ROUND_TIME: number = 45;
+export const ROUND_COUNT: number = 6;
 
 export const useGameStore = create<GameState & GameActions>((set, get) => ({
   phase: 'idle',

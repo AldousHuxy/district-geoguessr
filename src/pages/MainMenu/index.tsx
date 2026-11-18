@@ -4,7 +4,7 @@ import { MdArrowOutward, MdClose, MdHistory, MdLocationOn } from 'react-icons/md
 import { useForm } from 'react-hook-form';
 import Button from '@/components/ui/button';
 import Modal from '@/components/ui/modal';
-import WatershedScene from './WatershedScene';
+import PhotoCarousel from './PhotoCarousel';
 import routes from '@/router';
 import { ROUND_COUNT, ROUND_TIME, useGameStore } from '@/store/gameStore';
 import type { Location } from '@/store/gameStore';
@@ -57,7 +57,7 @@ const MainMenu = () => {
           />
           <div className="flex items-center gap-2 text-[10px] font-bold tracking-[0.2em] text-sky-blue sm:text-xs">
             <span className="h-2 w-2 rounded-full bg-soft-green motion-safe:animate-pulse" />
-            GIS DAY <span className="hidden text-white/40 sm:inline">/</span>
+            GIS DAY EDITION<span className="hidden text-white/40 sm:inline">/</span>
             <span className="hidden text-white/60 sm:inline">THE DISTRICT, IN PLAY</span>
           </div>
         </header>
@@ -98,37 +98,11 @@ const MainMenu = () => {
             </div>
           </div>
 
-          <div className="relative order-2 h-[clamp(145px,24dvh,220px)] w-full overflow-hidden rounded-2xl border border-sky-blue/20 bg-[#082c35] sm:h-auto sm:min-h-[450px] sm:rounded-3xl lg:min-h-[580px] phone-landscape:col-start-2 phone-landscape:row-span-2 phone-landscape:row-start-1 phone-landscape:h-full phone-landscape:min-h-0">
-            <img
-              src={`${import.meta.env.BASE_URL}${encodeURIComponent('33rd Street Outfall.jpg')}`}
-              alt=""
-              className="absolute inset-0 h-full w-full object-cover opacity-20"
-            />
-            <div aria-hidden="true" className="absolute inset-0 bg-linear-to-t from-[#061d25] via-[#082c35]/70 to-[#082c35]/50" />
-            <WatershedScene />
-            <div aria-hidden="true" className="pointer-events-none absolute inset-0 flex flex-col justify-between p-3 sm:p-7">
-              <div className="flex items-start justify-between gap-3">
-                <div>
-                  <p className="text-[10px] font-bold tracking-[0.22em] text-sky-blue">WATERSHED EXPLORER</p>
-                  <p className="mt-1 hidden text-xs text-white/60 sm:block">A new perspective on the district</p>
-                </div>
-                <span className="hidden rounded-full border border-soft-green/40 bg-[#082c35]/80 px-3 py-1 text-[10px] font-bold tracking-widest text-[#8de8d1] sm:block">FIELD NOTES</span>
-              </div>
-              <div className="absolute bottom-20 right-5 hidden w-36 rotate-3 rounded-xl border border-white/25 bg-[#061d25] p-1.5 shadow-xl sm:block sm:right-7 phone-landscape:hidden">
-                <img
-                  src={`${import.meta.env.BASE_URL}${encodeURIComponent('Cherry Creek.jpg')}`}
-                  alt=""
-                  className="h-20 w-full rounded-lg object-cover"
-                />
-                <p className="px-1 pb-1 pt-2 text-[9px] font-bold uppercase tracking-[0.16em] text-white/75">From the field ↗</p>
-              </div>
-              <div className="flex items-end justify-between gap-4">
-                <div className="flex gap-2 text-[10px] font-bold uppercase tracking-wider text-white/75">
-                  <span className="rounded-full border border-white/20 bg-[#061d25]/80 px-3 py-1.5">Terrain</span>
-                  <span className="rounded-full border border-white/20 bg-[#061d25]/80 px-3 py-1.5">Waterways</span>
-                </div>
-                <p className="text-right text-[10px] uppercase tracking-wider text-white/50"><span className="sm:hidden">Illustrative</span><span className="hidden sm:inline">Illustrative map<br />Not actual locations</span></p>
-              </div>
+          <div className="relative order-2 h-[clamp(240px,42dvh,420px)] w-full overflow-hidden rounded-2xl border border-sky-blue/20 bg-[#082c35] sm:h-auto sm:min-h-[450px] sm:rounded-3xl lg:min-h-[580px] phone-landscape:col-start-2 phone-landscape:row-span-2 phone-landscape:row-start-1 phone-landscape:h-full phone-landscape:min-h-0">
+            <div aria-hidden="true" className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_55%,rgba(61,162,169,0.28),transparent_65%)]" />
+            <PhotoCarousel onSelect={() => setModalOpen(true)} />
+            <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0 flex items-center justify-center gap-2 p-3 text-[10px] font-bold uppercase tracking-[0.2em] text-white/60 sm:p-6">
+              <span className="text-bright-yellow">←</span> Swipe to browse · Tap to play <span className="text-bright-yellow">→</span>
             </div>
           </div>
         </main>
